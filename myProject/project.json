@@ -1,0 +1,18 @@
+{
+ "name": "My Project",
+ "description": "Un proyecto para practicar wails",
+ "author": {
+  "name": "luis",
+  "email": "siulfegocho@gmail.com"
+ },
+ "version": "0.1.0",
+ "binaryname": "my-project.exe",
+ "frontend": {
+  "dir": "frontend",
+  "install": "npm install",
+  "build": "npm run build",
+  "bridge": "src",
+  "serve": "npm run serve"
+ },
+ "WailsVersion": ""
+}

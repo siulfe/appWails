@@ -1,0 +1,47 @@
+{
+	"logo":"TuFactoring",
+	"login":"Iniciar sesión",
+	"close":"Cerrar",
+	"label":{
+		"email":"Correo Electronico",
+		"password":"Contraseña",
+		"identification":"Identificación"
+	},
+	"$vuetify": {
+        "close": "Cerrar",
+        "dataIterator": {
+            "pageText": "{0}-{1} de {2}",
+            "noResultsText": "No se encontraron resultados",
+            "loadingText": "Cargando..."
+        },
+        "dataTable": {
+            "itemsPerPageText": "Filas por pagina:",
+            "ariaLabel": {
+                "sortDescending": ": Ordenando de forma descendente. Activa para remover el ordenamiento",
+                "sortAscending": ": Ordenando de forma ascendente. Activa para ordenar de forma descendente.",
+                "sortNone": ": Sin ordenamiento. Activa para ordenar de forma ascendente"
+            },
+            "sortBy": "Filtrar por: "
+        },
+        "dataFooter": {
+            "pageText": "{0}-{1} de {2}",
+            "itemsPerPageText": "Resultados por pagina:",
+            "itemsPerPageAll": "Todo",
+            "nextPage": "Siguiente pagina",
+            "prevPage": "Pagina previa",
+            "firstPage": "Primera pagina",
+            "lastPage": "Ultima pagina"
+        },
+        "datePicker": {
+            "itemsSelected": "{0} seleccionado"
+        },
+        "noDataText": "No hay data disponible",
+        "carousel": {
+            "prev": "Visualización previa",
+            "next": "Siguiente visualización"
+        },
+        "calendar": {
+            "moreEvents": "{0} más"
+        }
+    }
+}

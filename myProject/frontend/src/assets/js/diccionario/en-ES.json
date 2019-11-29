@@ -1,4 +1,10 @@
 {
+    "invalidUser":"Invalid User",
+    "clear":"Clear",
+    "confirmant": "CONFIRMANT | Confirmant | Confirmants",
+    "factor":"FACTOR | Factor | Factors",
+    "supplier":"SUPPLIER | Supplier | Suppliers",
+    "debtor":"DEBTOR | Debtor | Debtors",
 	"logo":"TuFactoring",
 	"login":"Login",
 	"close":"Close",

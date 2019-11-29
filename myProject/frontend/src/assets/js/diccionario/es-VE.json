@@ -1,4 +1,10 @@
 {
+    "invalidUser":"Usuario invalido",
+    "clear":"Limpiar",
+    "confirmant": "CONFIRMANTE | Confirmante | Confirmantes",
+    "factor":"INVERSIONISTA | Inversionista | Inversionistas",
+    "supplier":"PROVEEDOR | proveedor | proveedores",
+    "debtor":"EMPRESA | empresa | empresas",
 	"logo":"TuFactoring",
 	"login":"Iniciar sesión",
 	"close":"Cerrar",

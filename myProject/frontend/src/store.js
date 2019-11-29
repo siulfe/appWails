@@ -5,7 +5,8 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store({
 	state:{
-		count: 10
+		count: 10,
+		loged: false
 	},
 	mutations:{
 		incrementCounter(state, payload) {

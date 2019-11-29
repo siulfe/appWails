@@ -22,45 +22,56 @@
 							>
 								<v-toolbar-title>{{$t('logo')}}</v-toolbar-title>
 								<v-spacer />
-								<v-tooltip top>
+								<v-tooltip top >
 									<template v-slot:activator="{ on }">
-								        <v-btn 
+								        <v-btn @click="limpiar()"
 											icon v-on="on"
 										>
 											<v-icon>mdi-close</v-icon>
 										</v-btn>
 								    </template>
-								    <span>{{$t('close')}}</span>
+								    <span>{{$t('clear')}}</span>
 								</v-tooltip>
 							</v-toolbar>
 							<v-card-text>
 								<v-form>
 									<v-text-field
+										v-model="identification"
 										:label="$t('label.identification')"
 										name="indentification"
 										prepend-icon="person"
 										type="text"
+										:error="errorIdentification"
+										clearable
 									/>
 										
 									<v-text-field
+										v-model="email"
 										:label="$t('label.email')"
 										name="email"
 										prepend-icon="email"
 										type="email"
+										:error="errorEmail"
+										clearable
 									/>
 
 									<v-text-field
+										v-model="password"
 										:label="$t('label.password')"
 										name="password"
 										prepend-icon="lock"
 										type="password"
+										:error="errorPassword"
+										clearable
 									/>
+
+									<v-select v-model="participant" :error="errorParticipant" :items="participantsComputed" label="Tipo de Cuenta" filled clearable></v-select>
 
 								</v-form>
 							</v-card-text>
 							<v-card-actions>
 								<v-spacer/>
-								<v-btn color="primary">{{$t('login')}}</v-btn>
+								<v-btn color="primary" @click="logear()">{{$t('login')}}</v-btn>
 							</v-card-actions>
 						</v-card>
 					</v-col>
@@ -74,8 +85,91 @@
 	export default{
 		data(){
 			return{
-
+				identification:"",
+				email:"",
+				password:"",
+				participant:"",
+				participants: [],
+				errorIdentification:false,
+				errorEmail:false,
+				errorPassword:false,
+				errorParticipant:false,
 			}
 		},
+		methods:{
+			logear(){
+				if (this.validar()){
+					return
+				}
+
+				var cuenta = {
+					identification : this.identification,
+					email: this.email,
+					password: this.password,
+					participant: this.participant
+				}
+
+				window.backend.Login.Logear(cuenta).then(resp =>{
+					if(resp == 0){
+						this.$toastr.warning(this.$i18n.t("invalidUser"))
+					}else{
+						this.$router.push("prueba")
+					}
+
+
+				})
+			},
+			limpiar(){
+				this.identification=""
+				this.email=""
+				this.participant=""
+				this.participant=""
+				this.errorIdentification = false
+				this.errorEmail = false
+				this.errorPassword = false
+				this.errorParticipant = false
+			},
+			validar(){
+				var resp = false
+				if(this.identification == null || this.identification == '' || this.identification.length > 255) {
+					resp = true
+					this.errorIdentification=true
+				}else
+					this.errorIdentification = false
+				
+				if(this.email == null || this.email == '' || this.email.length > 255){
+					resp = true
+					this.errorEmail = true
+				}else
+					this.errorEmail = false
+				
+				if(this.password == null || this.password == '' || this.password.length > 255){
+					resp = true
+					this.errorPassword = true
+				}else
+					this.errorPassword = false
+				
+
+				if(this.participant == null || this.participant == '' || this.participant.length > 255){
+					resp = true
+					this.errorParticipant = true
+				}else
+					this.errorParticipant = false
+				
+				return resp
+			}
+		},
+		computed:{
+			participantsComputed(){
+				this.participants = [
+					{text:this.$i18n.tc("debtor",0), value:1},
+					{text:this.$i18n.tc("supplier",0), value:2},
+					{text:this.$i18n.tc("confirmant",0), value:3},
+					{text:this.$i18n.tc("factor",0), value:4}
+				]
+
+				return this.participants
+			}
+		}
 	}
 </script>

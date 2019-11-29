@@ -1,11 +1,10 @@
 <template>
   <div id="app">
-    <index />
+    <router-view/>
   </div>
 </template>
 
 <script>
-import index from "./components/index.vue";
 import "./assets/css/main.css";
 
 
@@ -16,8 +15,7 @@ export default {
   		img:"background-principal"
   	}
   },
-  components: {
-  	index
-  }	
+  created:function () {
+  }
 };
 </script>

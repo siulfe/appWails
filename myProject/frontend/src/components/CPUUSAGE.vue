@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="text-white">
     <h1>{{message}}</h1>
     <br>
     <h4>TuFactoring Inmortal</h4>
